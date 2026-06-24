@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huehunt — Color Palette Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-mesh" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◐</span>
+    <span class="brand-name">Huehunt</span>
+  </div>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="favoritesToggle" title="Show favorites" aria-label="Show favorites">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 21s-7.5-4.6-10-9.1C0.4 8.7 1.7 5.3 5 4.2c2.1-0.7 4.2 0.1 5.5 1.8 1.3-1.7 3.4-2.5 5.5-1.8 3.3 1.1 4.6 4.5 3 7.7C19.5 16.4 12 21 12 21z"/></svg>
+      <span class="fav-count" id="favCount">0</span>
+    </button>
+    <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle dark mode">
+      <svg viewBox="0 0 24 24" width="18" height="18" id="themeIcon"><path fill="currentColor" d="M12 18a6 6 0 100-12 6 6 0 000 12zm0 2a8 8 0 110-16 8 8 0 010 16zm0-19a1 1 0 011 1v1a1 1 0 11-2 0V1a1 1 0 011-1zm0 21a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM3.5 3.5a1 1 0 011.4 0l.7.7a1 1 0 11-1.4 1.4l-.7-.7a1 1 0 010-1.4zm15.9 15.9a1 1 0 011.4 0l.7.7a1 1 0 11-1.4 1.4l-.7-.7a1 1 0 010-1.4zM1 12a1 1 0 011-1h1a1 1 0 110 2H2a1 1 0 01-1-1zm19 0a1 1 0 011-1h1a1 1 0 110 2h-1a1 1 0 01-1-1zM3.5 20.5a1 1 0 010-1.4l.7-.7a1 1 0 111.4 1.4l-.7.7a1 1 0 01-1.4 0zm15.9-15.9a1 1 0 010-1.4l.7-.7a1 1 0 111.4 1.4l-.7.7a1 1 0 01-1.4 0z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Find a palette<br><span class="hero-accent">worth keeping.</span></h1>
+    <p class="hero-sub">Hit space, lock what works, hunt the rest.</p>
+  </section>
+
+  <section class="palette-wrap" id="paletteWrap" aria-label="Color palette">
+    <!-- swatches injected by JS -->
+  </section>
+
+  <div class="action-bar">
+    <button class="primary-btn" id="generateBtn">
+      <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M17.7 5.3a1 1 0 010 1.4L15.4 9H20a1 1 0 110 2h-7a1 1 0 01-.7-1.7l4-4a1 1 0 011.4 0zM6.3 18.7a1 1 0 010-1.4L8.6 15H4a1 1 0 110-2h7a1 1 0 01.7 1.7l-4 4a1 1 0 01-1.4 0z"/></svg>
+      Generate
+      <kbd>Space</kbd>
+    </button>
+    <button class="ghost-btn" id="saveBtn">Save palette</button>
+    <button class="ghost-btn" id="copyAllBtn">Copy all HEX</button>
+  </div>
+
+  <section class="favorites-panel" id="favoritesPanel" aria-label="Saved palettes">
+    <div class="favorites-header">
+      <h2>Saved palettes</h2>
+      <button class="icon-btn small" id="closeFavorites" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M18.3 5.71L12 12.01l-6.3-6.3-1.41 1.42 6.3 6.3-6.3 6.29 1.41 1.42 6.3-6.3 6.3 6.3 1.41-1.42-6.3-6.29 6.3-6.3z"/></svg>
+      </button>
+    </div>
+    <div class="favorites-list" id="favoritesList">
+      <p class="empty-state">No saved palettes yet. Generate one you like and hit "Save palette".</p>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
